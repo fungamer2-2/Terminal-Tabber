@@ -6,7 +6,7 @@ from time import sleep
 
 out_board = []
 
-def resetBoard():
+def resetBoard(): # does someone have a faster way to do this?
     global out_board
     out_board = []
     for x in range(40):
@@ -18,7 +18,7 @@ resetBoard()
 
 # games
 
-class checkerboard:
+class checkerboard: # 😅 testing
     def __init__(self):
         self.x = 40
         self.y = 40
