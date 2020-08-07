@@ -46,11 +46,12 @@ class Tab:
                 out_board[x + self.xpos][y + self.ypos] = array_out[round(aaax / self.h * y)][round(aaay / self.w * x)]
 
 
-while True:
-    try:
-        os.system('cls')
-        for i in range(40):
-            print(" ".join(out_board[i]))
-        exec(input("-> "))
-    except:
-        pass
+if __name__ == "__main__":
+    while True:
+        try:
+            os.system('cls')
+            for i in range(40):
+                print(" ".join(out_board[i]))
+            exec(input("-> "))
+        except:
+            pass
