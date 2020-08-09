@@ -20,13 +20,18 @@ resetBoard()
 
 class checkerboard: # 😅 testing
     def __init__(self):
-        self.x = 40
-        self.y = 40
+        self.h = 40
+        self.w = 40
+        self.one = "x"
+        self.zero = "."
+    def inputsize(self,inh,inw):
+        self.h = inh
+        self.w = inw
     def inputCommand(self,inobj):
-        self.x = inobj[0]
-        self.y = inobj[1]
+        self.one = inobj[0]
+        self.zero = inobj[1]
     def output(self):
-        return (([["x","."] * round(self.x / 2)] + [[".","x"] * round(self.x / 2)]) * round(self.y / 2),self.x,self.y)
+        return (([[self.one,self.zero] * round(self.h / 2)] + [[self.zero,self.one] * round(self.h / 2)]) * round(self.w / 2),self.h,self.w)
 
 # systems
 
@@ -39,12 +44,17 @@ class Tab:
         self.ypos = 0
     def interact(self,inputCom):
         self.game.inputCommand(inputCom)
+    def resizegame(self,inh,inw):
+        self.game.inputsize(inh,inw)
+    def fitintogame(self):
+        (self.h,self.w) = (self.game.h,self.game.w)
+    def fitgame(self):
+        self.resizegame(self.h,self.w)
     def output(self):
         (array_out,aaax,aaay) = self.game.output()
         for x in range(self.w):
             for y in range(self.h):
                 out_board[x + self.xpos][y + self.ypos] = array_out[round(aaax / self.h * y)][round(aaay / self.w * x)]
-
 
 if __name__ == "__main__":
     while True:
