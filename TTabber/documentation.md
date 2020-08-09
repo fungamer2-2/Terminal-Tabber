@@ -16,6 +16,12 @@ Tab : class that has the following:
 
 `Tab.interact(inputCom)` : Interact with the game.
 
+`Tab.resizegame(inh,inw)` : (input height, input width) Resize the game.
+
+`Tab.fitintogame()` : Resize the tab into the game's w and h.
+
+`Tab.fitgame()` : Resize the game into the tab's w and h.
+
 `Tab.output()` : Make changes to the board.
 
 `Tab.h` : Height
@@ -32,8 +38,14 @@ How to make a game to associate with the game:
 
 1. Use `class` to begin.
 2. Create a function inside the class named `__init__` with one parameter : `self`
-3. Create `self.x` and `self.y` for width and height ( I know, it's confusing )
+3. Create `self.h` and `self.w` for width and height
 4. Add a `inputCommand` function inside the class with two parameters : `self`,`inobj` (inobj stands for Input Object)
-5. Make the class interact and change its variables.
-6. Add a `output` function inside the class with one parameter : `self`
-7. In the `output` function, make some calculations and return the board you want to output.
+5. Put the following : 
+```
+def inputsize(self,inh,inw):
+        self.h = inh
+        self.w = inw
+```
+6. Make the class interact and change its variables.
+7. Add a `output` function inside the class with one parameter : `self`
+8. In the `output` function, make some calculations and return the board you want to output.
